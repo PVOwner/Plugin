@@ -109,21 +109,21 @@ end)
 end)
 
 delta.Settings:AddInput("Health", "Allowed User Changinh Your HP", function(text)
-  local health = tonumber(text) -- Converts the text into number first
+  local health = tonumber(text)
   
-  Humanoid.Health = number -- Set the walkspeed as the number input
+  Humanoid.Health = health
 end)
 
 delta.Settings:AddInput("Max HP", "Allowed User Changing Your Max HP", function(text)
-  local maxhealth = tonumber(text) -- Converts the text into number first
+  local maxhealth = tonumber(text)
   
-  Humanoid.MaxHealth = maxhealth -- Set the walkspeed as the number input
+  Humanoid.MaxHealth = maxhealth
 end)
 
 delta.Settings:AddInput("FOV", "Allowed To Change Your Field Of View", function(text)
-  local fov = tonumber(text) -- Converts the text into number first
+  local fov = tonumber(text)
   
-  CurrentCamera.FieldOfView = fov -- Set the walkspeed as the number input
+  CurrentCamera.FieldOfView = fov
 end)
 
 delta.Settings:AddButton("Sit", "Change Your Humanoid To Sit", function()
