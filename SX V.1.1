@@ -1,1 +1,154 @@
+--i wanna obfuscate it, but i can't then enjoy skid it
+--Locals
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local LocalPlayer = Players.LocalPlayer
+local Humanoid = LocalPlayer.Character:WaitForChild("Humanoid") 
+local Character = LocalPlayer.Character
+local HumanoidRootPart = Character.HumanoidRootPart
+local Workspace = game:GetService("Workspace")
+local CurrentCamera = workspace.CurrentCamera
+local infiniteJumpEnabled = false
+local pluginname = SX
+local oldversion = V.1
+local currentversion = V.1.1
+local nextversion = X.2
 
+--Tabs
+delta:AddTab("Special Thank/Credits", "Thank you Delta Team for this function, and Made by Ember\nYT || EmberIsBack\nDiscord || ember260")
+delta:AddTab("Info", "Plugin Name Called: " .. pluginname .. ", Current Version: " .. currentversion .. ", Old Version: " .. oldversion .." And Next Version: " .. nextversion .. ".")
+delta:AddTab("SX Welcome", "Thank you for using my plugin!")
+
+--Settings Function
+delta.Settings:AddInput("WalkSpeed", "Allows you to change speed", function(text)
+    local speed = tonumber(text)
+    if speed then
+        Humanoid.WalkSpeed = speed
+    end
+end)
+
+delta.Settings:AddInput("JumpPower", "Allows you to change power of your jump", function(text)
+    local power = tonumber(text)
+    if power then
+        Humanoid.JumpPower = power
+    end
+end)
+
+delta.Settings:AddInput("HipHeight", "Changes your HipHeight based on the number input.", function(text)
+    local hipHeight = tonumber(text)
+    if hipHeight then
+        Humanoid.HipHeight = hipHeight
+    end
+end)
+
+delta.Settings:AddInput("Gravity", "Allows you to change gravity power", function(text)
+    local gravity = tonumber(text)
+    if gravity then
+        Workspace.Gravity = gravity
+    end
+end)
+
+delta.Settings: AddSwitch("Infinite Jump", "Allows user to infinitely jump.", function(state)
+    if state then
+        infiniteJumpEnabled = true
+            UserInputService.JumpRequest:Connect(function()
+            if infiniteJumpEnabled then
+                Humanoid:ChangeState("Jumping")
+            else
+                infiniteJumpEnabled = false
+            end
+        end
+    end)
+end)
+
+--you can still scrolling
+delta.Settings:AddButton("Reset", "Kills your character", function()
+    Humanoid.Health = 0
+end)
+
+delta.Settings:AddButton("Anti Afk", "Prevents You From Getting Kicked Due to Being AFK.", function()
+    local OldNameCall = nil
+    OldNameCall = hookmetamethod(game, "__namecall", function(...)
+        local self, key = ...
+        if self == Players.LocalPlayer and getcallingmethod() == "Idled" then
+            return true
+        end
+        return OldNameCall(...)
+    end)
+end)
+
+delta.Settings:AddButton("RTX", "Selected RTX", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/RTX%20Gui%20Hub%20Obfuscator'))()
+end)
+
+delta.Settings:AddButton("Instant Prompt", "Bypasses ProximityPrompt cooldown.", function()
+    game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
+        fireproximityprompt(prompt)
+    end
+end)
+
+delta.Settings:AddInput("Hitbox", "Based On Input Number", function(text)
+_G.HeadSize = text
+_G.Disabled = true
+
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.9
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Gray")
+v.Character.HumanoidRootPart.Material = "Plastic"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+end)
+
+delta.Settings:AddInput("Health", "Allowed User Changinh Your HP", function(text)
+  local health = tonumber(text) -- Converts the text into number first
+  
+  Humanoid.Health = number -- Set the walkspeed as the number input
+end)
+
+delta.Settings:AddInput("Max HP", "Allowed User Changing Your Max HP", function(text)
+  local maxhealth = tonumber(text) -- Converts the text into number first
+  
+  Humanoid.MaxHealth = maxhealth -- Set the walkspeed as the number input
+end)
+
+delta.Settings:AddInput("FOV", "Allowed To Change Your Field Of View", function(text)
+  local fov = tonumber(text) -- Converts the text into number first
+  
+  CurrentCamera.FieldOfView = fov -- Set the walkspeed as the number input
+end)
+
+delta.Settings:AddButton("Sit", "Change Your Humanoid To Sit", function()
+  Humanoid.Sit = true
+end)
+
+delta.Settings:AddButton("Anti Fling", "Anti Flinging From Exploiter", function()
+  HumanoidRootPart.Anchored = true
+end)
+
+--Save Script
+delta:SaveScript("Shadow X Executor", "loadstring(game:HttpGet('https://raw.githubusercontent.com/PVOwner/OwnerScript/main/ShadowXExecutor'))()", "Key")
+
+delta:SaveScript("Nameless Admin", "loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()", "Best")
+
+delta:SaveScript("Dark Dex", "loadstring(game:HttpGet('https://pastebin.com/raw/J8AX35Fg'))()", "Best")
+
+delta:SaveScript("Fly", "loadstring(game:HttpGet('https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt'))()", "V3")
+
+delta:SaveScript("Dex Mobile", "getgenv().Key = 'Bash' loadstring(game:HttpGet('https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3AIY%20Dex', true))()", "Best")
+
+delta:SaveScript("Walk On Wall", "loadstring(game:HttpGet('https://pastebin.com/raw/zXk4Rq2r'))()", "Best")
+
+delta:SaveScript("Script Searcher", "loadstring(game:HttpGet('https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher'))()", "Yes")
+
+delta:SaveScript("Remote Spy/Simple Spy", "loadstring(game:HttpGet('https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpySource.lua'))()", "Best")
+
+--end of the plugin script thank you scrolling to this.
