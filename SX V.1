@@ -1,1 +1,76 @@
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local LocalPlayer = Players.LocalPlayer
+local Humanoid = LocalPlayer.Character:WaitForChild("Humanoid") 
+local Workspace = game:GetService("Workspace")
 
+delta:AddTab("SX Welcome", "Thank you for using my plugin. I will update it as fast as possible!")
+delta:AddTab("Special Thank", "Thank you Delta Team for this function!")
+
+delta.Settings:AddInput("WalkSpeed", "Allows you to change speed", function(text)
+    local speed = tonumber(text)
+    if speed then
+        Humanoid.WalkSpeed = speed
+    end
+end)
+
+delta.Settings:AddInput("JumpPower", "Allows you to change power of your jump", function(text)
+    local power = tonumber(text)
+    if power then
+        Humanoid.JumpPower = power
+    end
+end)
+
+delta.Settings:AddInput("HipHeight", "Changes your HipHeight based on the number input.", function(text)
+    local hipHeight = tonumber(text)
+    if hipHeight then
+        Humanoid.HipHeight = hipHeight
+    end
+end)
+
+delta.Settings:AddInput("Gravity", "Allows you to change gravity power", function(text)
+    local gravity = tonumber(text)
+    if gravity then
+        Workspace.Gravity = gravity
+    end
+end)
+
+delta.Settings:AddButton("Infinite Jump", "Allows user to infinitely jump.", function()
+    local infiniteJumpEnabled = true
+    UserInputService.JumpRequest:Connect(function()
+        if infiniteJumpEnabled then
+            Humanoid:ChangeState("Jumping")
+        end
+    end)
+end)
+
+delta.Settings:AddButton("Reset", "Kills your character", function()
+    Humanoid.Health = 0
+end)
+
+delta.Settings:AddButton("Anti Afk", "Prevents You From Getting Kicked Due to Being AFK.", function()
+    local OldNameCall = nil
+    OldNameCall = hookmetamethod(game, "__namecall", function(...)
+        local self, key = ...
+        if self == Players.LocalPlayer and getcallingmethod() == "Idled" then
+            return true
+        end
+        return OldNameCall(...)
+    end)
+end)
+
+delta.Settings:AddButton("RTX", "Selected RTX", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/RTX%20Gui%20Hub%20Obfuscator'))()
+end)
+
+delta:SaveScript("Shadow X Executor", "loadstring(game:HttpGet('https://raw.githubusercontent.com/PVOwner/OwnerScript/main/ShadowXExecutor'))()", "Key")
+
+delta:SaveScript("Nameless Admin", "loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()", "Best")
+
+delta:SaveScript("Shadow X Admin", "loadstring(game:HttpGet('https://raw.githubusercontent.com/PVOwner/OwnerScript/main/Admin.lua'))()", "Key")
+
+delta:SaveScript("Dark Dex", "loadstring(game:HttpGet('https://pastebin.com/raw/J8AX35Fg'))()", "Best")
+
+delta:SaveScript("Dex Mobile", "getgenv().Key = 'Bash' loadstring(game:HttpGet('https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3AIY%20Dex', true))()", "Best")
+
+delta:SaveScript("Walk On Wall", "loadstring(game:HttpGet('https://pastebin.com/raw/zXk4Rq2r'))()", "Good")
