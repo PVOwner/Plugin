@@ -1,4 +1,4 @@
-        local player = game.Players.LocalPlayer
+                                local player = game.Players.LocalPlayer
 
 				local clickSoundId = "rbxassetid://6732690176"
 				local clickSound = Instance.new("Sound")
