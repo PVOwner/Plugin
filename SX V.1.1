@@ -81,6 +81,10 @@ delta.Settings:AddButton("RTX", "Selected RTX", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/RTX%20Gui%20Hub%20Obfuscator'))()
 end)
 
+delta.Settings:AddButton("Changelog", "Allowed You To Knowing About Updated", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/PVOwner/Plugin/main/changelogver2.lua"))()
+end)
+
 delta.Settings:AddButton("Instant Prompt", "Bypasses ProximityPrompt cooldown.", function()
     game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
         fireproximityprompt(prompt)
