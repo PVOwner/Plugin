@@ -1,5 +1,4 @@
--- Locals
-print("1") -- Debug: Print 1
+--Locals
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local LocalPlayer = Players.LocalPlayer
@@ -14,21 +13,18 @@ local ver1 = "V.1"
 local ver2 = "V.1.1"
 local ver3 = "X.2"
 
--- Tabs
-print("2") -- Debug: Print 2
+--Tabs
 delta:AddTab("Special Thank/Credits", "Thank you Delta Team for this function, and Made by Ember\nYT || EmberIsBack\nDiscord || ember260")
 delta:AddTab("Info", "Plugin Called: " .. pluginname .. ", Current Version: " .. ver2 .. ", Old Version: " .. ver1 .. " And Next Version: " .. ver3 .. ".")
 delta:AddTab("SX Welcome", "Thank you for using my plugin!")
-print("3") -- Debug: Print 3
 
--- Settings Function
+--Settings Function
 delta.Settings:AddInput("WalkSpeed", "Allows you to change speed", function(text)
     local speed = tonumber(text)
     if speed then
         Humanoid.WalkSpeed = speed
     end
 end)
-print("4") -- Debug: Print 4
 
 delta.Settings:AddInput("JumpPower", "Allows you to change power of your jump", function(text)
     local power = tonumber(text)
@@ -36,7 +32,6 @@ delta.Settings:AddInput("JumpPower", "Allows you to change power of your jump", 
         Humanoid.JumpPower = power
     end
 end)
-print("5") -- Debug: Print 5
 
 delta.Settings:AddInput("HipHeight", "Changes your HipHeight based on the number input.", function(text)
     local hipHeight = tonumber(text)
@@ -44,7 +39,6 @@ delta.Settings:AddInput("HipHeight", "Changes your HipHeight based on the number
         Humanoid.HipHeight = hipHeight
     end
 end)
-print("6") -- Debug: Print 6
 
 delta.Settings:AddInput("Gravity", "Allows you to change gravity power", function(text)
     local gravity = tonumber(text)
@@ -52,7 +46,6 @@ delta.Settings:AddInput("Gravity", "Allows you to change gravity power", functio
         Workspace.Gravity = gravity
     end
 end)
-print("7") -- Debug: Print 7
 
 delta.Settings:AddSwitch("Infinite Jump", "Allows user to infinitely jump.", function(state)
     if state then
@@ -66,14 +59,11 @@ delta.Settings:AddSwitch("Infinite Jump", "Allows user to infinitely jump.", fun
         infiniteJumpEnabled = false
     end
 end)
-print("8") -- Debug: Print 8
 
 -- You can still scrolling
-print("9") -- Debug: Print 9
 delta.Settings:AddButton("Reset", "Kills your character", function()
     Humanoid.Health = 0
 end)
-print("10") -- Debug: Print 10
 
 delta.Settings:AddButton("Anti Afk", "Prevents You From Getting Kicked Due to Being AFK.", function()
     local OldNameCall = nil
@@ -85,24 +75,20 @@ delta.Settings:AddButton("Anti Afk", "Prevents You From Getting Kicked Due to Be
         return OldNameCall(...)
     end)
 end)
-print("11") -- Debug: Print 11
 
 delta.Settings:AddButton("RTX", "Selected RTX", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/RTX%20Gui%20Hub%20Obfuscator'))()
 end)
-print("12") -- Debug: Print 12
 
 delta.Settings:AddButton("Changelog", "Allowed You To Knowing About Updated", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/PVOwner/Plugin/main/Changelogver2.lua"))()
 end)
-print("13") -- Debug: Print 13
 
 delta.Settings:AddButton("Instant Prompt", "Bypasses ProximityPrompt cooldown.", function()
     game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
         fireproximityprompt(prompt)
     end)
 end)
-print("14") -- Debug: Print 14
 
 delta.Settings:AddInput("Hitbox", "Based On Input Number", function(text)
     _G.HeadSize = text
@@ -124,65 +110,47 @@ delta.Settings:AddInput("Hitbox", "Based On Input Number", function(text)
         end
     end)
 end)
-print("15") -- Debug: Print 15
 
 delta.Settings:AddInput("Health", "Allowed User Changing Your HP", function(text)
     local health = tonumber(text)
-
     Humanoid.Health = health
 end)
-print("16") -- Debug: Print 16
 
 delta.Settings:AddInput("Max HP", "Allowed User Changing Your Max HP", function(text)
     local maxhealth = tonumber(text)
-
     Humanoid.MaxHealth = maxhealth
 end)
-print("17") -- Debug: Print 17
 
 delta.Settings:AddInput("FOV", "Allowed To Change Your Field Of View", function(text)
     local fov = tonumber(text)
-
     CurrentCamera.FieldOfView = fov
 end)
-print("18") -- Debug: Print 18
 
 delta.Settings:AddButton("Sit", "Change Your Humanoid To Sit", function()
     Humanoid.Sit = true
 end)
-print("19") -- Debug: Print 19
 
 delta.Settings:AddButton("Anti Fling", "Anti Flinging From Exploiter", function()
     HumanoidRootPart.Anchored = true
 end)
-print("20") -- Debug: Print 20
 
--- Save Script
+-- Save Scripts
 delta:SaveScript("Shadow X Executor", "loadstring(game:HttpGet('https://raw.githubusercontent.com/PVOwner/OwnerScript/main/ShadowXExecutor'))()", "Key")
-print("21") -- Debug: Print 21
 
 delta:SaveScript("Nameless Admin", "loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()", "Best")
-print("22") -- Debug: Print 22
 
 delta:SaveScript("Dark Dex", "loadstring(game:HttpGet('https://pastebin.com/raw/J8AX35Fg'))()", "Best")
-print("23") -- Debug: Print 23
 
 delta:SaveScript("Fly", "loadstring(game:HttpGet('https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt'))()", "V3")
-print("24") -- Debug: Print 24
 
 delta:SaveScript("Dex Mobile", "getgenv().Key = 'Bash' loadstring(game:HttpGet('https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3AIY%20Dex', true))()", "Best")
-print("25") -- Debug: Print 25
 
 delta:SaveScript("Walk On Wall", "loadstring(game:HttpGet('https://pastebin.com/raw/zXk4Rq2r'))()", "Best")
-print("26") -- Debug: Print 26
 
 delta:SaveScript("Script Searcher", "loadstring(game:HttpGet('https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher'))()", "Yes")
-print("27") -- Debug: Print 27
 
 delta:SaveScript("Remote Spy/Simple Spy", "loadstring(game:HttpGet('https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpySource.lua'))()", "Best")
-print("28") -- Debug: Print 28
 
 delta:SaveScript("Calculator By Ember", "loadstring(game:HttpGet('https://raw.githubusercontent.com/PVOwner/RandomScript/main/Calculator.lua'))()", "Best")
-print("29") -- Debug: Print 29
 
 -- End of the plugin script
