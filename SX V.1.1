@@ -12,11 +12,13 @@ local pluginname = "SX"
 local ver1 = "V.1"
 local ver2 = "V.1.1"
 local ver3 = "X.2"
+print("1")
 
 --Tabs
 delta:AddTab("Special Thank/Credits", "Thank you Delta Team for this function, and Made by Ember\nYT || EmberIsBack\nDiscord || ember260")
 delta:AddTab("Info", "Plugin Called: " .. pluginname .. ", Current Version: " .. ver2 .. ", Old Version: " .. ver1 .. " And Next Version: " .. ver3 .. ".")
 delta:AddTab("SX Welcome", "Thank you for using my plugin!")
+print("2")
 
 --Settings Function
 delta.Settings:AddInput("WalkSpeed", "Allows you to change speed", function(text)
@@ -25,6 +27,7 @@ delta.Settings:AddInput("WalkSpeed", "Allows you to change speed", function(text
         Humanoid.WalkSpeed = speed
     end
 end)
+print("3")
 
 delta.Settings:AddInput("JumpPower", "Allows you to change power of your jump", function(text)
     local power = tonumber(text)
@@ -32,6 +35,7 @@ delta.Settings:AddInput("JumpPower", "Allows you to change power of your jump", 
         Humanoid.JumpPower = power
     end
 end)
+print("4")
 
 delta.Settings:AddInput("HipHeight", "Changes your HipHeight based on the number input.", function(text)
     local hipHeight = tonumber(text)
@@ -39,6 +43,7 @@ delta.Settings:AddInput("HipHeight", "Changes your HipHeight based on the number
         Humanoid.HipHeight = hipHeight
     end
 end)
+print("5")
 
 delta.Settings:AddInput("Gravity", "Allows you to change gravity power", function(text)
     local gravity = tonumber(text)
@@ -46,24 +51,27 @@ delta.Settings:AddInput("Gravity", "Allows you to change gravity power", functio
         Workspace.Gravity = gravity
     end
 end)
+print("6")
 
 delta.Settings:AddSwitch("Infinite Jump", "Allows user to infinitely jump.", function(state)
     if state then
         infiniteJumpEnabled = true
-            UserInputService.JumpRequest:Connect(function()
+        UserInputService.JumpRequest:Connect(function()
             if infiniteJumpEnabled then
                 Humanoid:ChangeState("Jumping")
-            else
-                infiniteJumpEnabled = false
             end
-        end
-    end)
+        end)
+    else
+        infiniteJumpEnabled = false
+    end
 end)
+print("7")
 
 --you can still scrolling
 delta.Settings:AddButton("Reset", "Kills your character", function()
     Humanoid.Health = 0
 end)
+print("8")
 
 delta.Settings:AddButton("Anti Afk", "Prevents You From Getting Kicked Due to Being AFK.", function()
     local OldNameCall = nil
@@ -75,20 +83,24 @@ delta.Settings:AddButton("Anti Afk", "Prevents You From Getting Kicked Due to Be
         return OldNameCall(...)
     end)
 end)
+print("9")
 
 delta.Settings:AddButton("RTX", "Selected RTX", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/RTX%20Gui%20Hub%20Obfuscator'))()
 end)
+print("10")
 
 delta.Settings:AddButton("Changelog", "Allowed You To Knowing About Updated", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/PVOwner/Plugin/main/Changelogver2.lua"))()
 end)
+print("11")
 
 delta.Settings:AddButton("Instant Prompt", "Bypasses ProximityPrompt cooldown.", function()
     game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
         fireproximityprompt(prompt)
     end
 end)
+print("12")
 
 delta.Settings:AddInput("Hitbox", "Based On Input Number", function(text)
 _G.HeadSize = text
@@ -110,50 +122,65 @@ end
 end
 end)
 end)
+print("13")
 
-delta.Settings:AddInput("Health", "Allowed User Changinh Your HP", function(text)
+delta.Settings:AddInput("Health", "Allowed User Changing Your HP", function(text)
   local health = tonumber(text)
   
   Humanoid.Health = health
 end)
+print("14")
 
 delta.Settings:AddInput("Max HP", "Allowed User Changing Your Max HP", function(text)
   local maxhealth = tonumber(text)
   
   Humanoid.MaxHealth = maxhealth
 end)
+print("15")
 
 delta.Settings:AddInput("FOV", "Allowed To Change Your Field Of View", function(text)
   local fov = tonumber(text)
   
   CurrentCamera.FieldOfView = fov
 end)
+print("16")
 
 delta.Settings:AddButton("Sit", "Change Your Humanoid To Sit", function()
   Humanoid.Sit = true
 end)
+print("17")
 
 delta.Settings:AddButton("Anti Fling", "Anti Flinging From Exploiter", function()
   HumanoidRootPart.Anchored = true
 end)
+print("18")
 
 --Save Script
 delta:SaveScript("Shadow X Executor", "loadstring(game:HttpGet('https://raw.githubusercontent.com/PVOwner/OwnerScript/main/ShadowXExecutor'))()", "Key")
+print("20")
 
 delta:SaveScript("Nameless Admin", "loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()", "Best")
+print("21")
 
 delta:SaveScript("Dark Dex", "loadstring(game:HttpGet('https://pastebin.com/raw/J8AX35Fg'))()", "Best")
+print("23")
 
 delta:SaveScript("Fly", "loadstring(game:HttpGet('https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt'))()", "V3")
+print("24")
 
 delta:SaveScript("Dex Mobile", "getgenv().Key = 'Bash' loadstring(game:HttpGet('https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3AIY%20Dex', true))()", "Best")
+print("25")
 
 delta:SaveScript("Walk On Wall", "loadstring(game:HttpGet('https://pastebin.com/raw/zXk4Rq2r'))()", "Best")
+print("26")
 
 delta:SaveScript("Script Searcher", "loadstring(game:HttpGet('https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher'))()", "Yes")
+print("27")
 
 delta:SaveScript("Remote Spy/Simple Spy", "loadstring(game:HttpGet('https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpySource.lua'))()", "Best")
+print("28")
 
 delta:SaveScript("Calculator By Ember", "loadstring(game:HttpGet('https://raw.githubusercontent.com/PVOwner/RandomScript/main/Calculator.lua'))()", "Best")
+print("29")
 
 --end of the plugin script thank you scrolling to this.
