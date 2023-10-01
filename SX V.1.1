@@ -1,10 +1,9 @@
---i wanna obfuscate it, but i can't then enjoy skid it
 --Locals
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local LocalPlayer = Players.LocalPlayer
-local Humanoid = LocalPlayer.Character:WaitForChild("Humanoid") 
 local Character = LocalPlayer.Character
+local Humanoid = Character:WaitForChild("Humanoid") 
 local HumanoidRootPart = Character.HumanoidRootPart
 local Workspace = game:GetService("Workspace")
 local CurrentCamera = Workspace.CurrentCamera
@@ -48,7 +47,7 @@ delta.Settings:AddInput("Gravity", "Allows you to change gravity power", functio
     end
 end)
 
-delta.Settings: AddSwitch("Infinite Jump", "Allows user to infinitely jump.", function(state)
+delta.Settings:AddSwitch("Infinite Jump", "Allows user to infinitely jump.", function(state)
     if state then
         infiniteJumpEnabled = true
             UserInputService.JumpRequest:Connect(function()
