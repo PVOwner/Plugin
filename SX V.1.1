@@ -154,3 +154,43 @@ delta:SaveScript("Remote Spy/Simple Spy", "loadstring(game:HttpGet('https://raw.
 delta:SaveScript("Calculator By Ember", "loadstring(game:HttpGet('https://raw.githubusercontent.com/PVOwner/RandomScript/main/Calculator.lua'))()", "Best")
 
 -- End of the plugin script
+
+
+--Anti Kick And Webhooked
+
+local mt = getrawmetatable(game) or getmetatable(game)
+local __oldnamecall = mt.__namecall
+
+mt.__namecall = newcclosure(function(self, ...)
+	local args = {...}
+	local namecallmethod = getnamecallmethod()
+
+	if self == game:GetService("Players").LocalPlayer and string.lower(namecallmethod) == "kick" then
+		warn("Something tried to kick you!")
+		return nil
+	end
+
+	return __oldnamecall(self, unpack(args))
+end)
+
+setreadonly(mt, true)
+
+local oldRequest = game.HttpGet
+local hookfunction = hookfunction or function(f, hook)
+    local env = getfenv(f)
+    local key = newcclosure(function(...)
+        local a = {...}
+        if a[1].Url and (a[1].Url:find("discord") or a[1].Url:find("webhook")) then
+            warn("Something tried to send a suspicious HTTP request: " .. tostring(a[1].Url))
+            return
+        end
+        return hook(...)
+    end)
+    setfenv(key, env)
+    return key
+end
+
+game.HttpGet = hookfunction(oldRequest, function(...)
+    local args = {...}
+    return oldRequest(unpack(args))
+end)
