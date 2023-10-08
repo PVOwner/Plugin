@@ -1,4 +1,4 @@
---Locals
+0--Locals
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local LocalPlayer = Players.LocalPlayer
@@ -7,7 +7,6 @@ local Humanoid = Character:WaitForChild("Humanoid")
 local HumanoidRootPart = Character.HumanoidRootPart
 local Workspace = game:GetService("Workspace")
 local CurrentCamera = Workspace.CurrentCamera
-local infiniteJumpEnabled = false
 local pluginname = "SX"
 local ver1 = "V.1"
 local ver2 = "V.1.1"
@@ -47,16 +46,13 @@ delta.Settings:AddInput("Gravity", "Allows you to change gravity power", functio
     end
 end)
 
-delta.Settings:AddSwitch("Infinite Jump", "Allows user to infinitely jump.", function(state)
-    if state then
-        infiniteJumpEnabled = true
+delta.Settings:AddButton("Infinite Jump", "Allows user to infinitely jump.", function()
+        local infiniteJumpEnabled = true
         UserInputService.JumpRequest:Connect(function()
             if infiniteJumpEnabled then
                 Humanoid:ChangeState("Jumping")
             end
         end)
-    else
-        infiniteJumpEnabled = false
     end
 end)
 
@@ -82,6 +78,10 @@ end)
 
 delta.Settings:AddButton("Changelog", "Allowed You To Knowing About Updated", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/PVOwner/Plugin/main/Changelogver2.lua"))()
+end)
+
+delta.Settings:AddButton("Coordinate Finder", "Allowed You To Copy/Create Ur Position Of Character To Script", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Bst8rBAS"))()
 end)
 
 delta.Settings:AddButton("Instant Prompt", "Bypasses ProximityPrompt cooldown.", function()
@@ -111,16 +111,6 @@ delta.Settings:AddInput("Hitbox", "Based On Input Number", function(text)
     end)
 end)
 
-delta.Settings:AddInput("Health", "Allowed User Changing Your HP", function(text)
-    local health = tonumber(text)
-    Humanoid.Health = health
-end)
-
-delta.Settings:AddInput("Max HP", "Allowed User Changing Your Max HP", function(text)
-    local maxhealth = tonumber(text)
-    Humanoid.MaxHealth = maxhealth
-end)
-
 delta.Settings:AddInput("FOV", "Allowed To Change Your Field Of View", function(text)
     local fov = tonumber(text)
     CurrentCamera.FieldOfView = fov
@@ -132,6 +122,10 @@ end)
 
 delta.Settings:AddButton("Anti Fling", "Anti Flinging From Exploiter", function()
     HumanoidRootPart.Anchored = true
+end)
+
+delta.Settings:AddButton("UnAnti Fling", "UnAnti Flinging From Exploiter", function()
+    HumanoidRootPart.Anchored = false
 end)
 
 -- Save Scripts
